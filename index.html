@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="An in-depth exploration of the subject — introduction, history, impacts, and social good." />
+  <title>The Subject — An In-Depth Exploration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="in-splash">
+
+  <!-- WCAG 2.4.1 – Bypass Blocks -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Reading progress bar (filled by JS) -->
+  <div class="progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0"
+    aria-valuemax="100">
+    <div class="progress-bar__fill"></div>
+  </div>
+
+  <!-- Animated mascot that changes per section -->
+  <div class="section-mascot" aria-hidden="true">
+    <img class="section-mascot__img" data-section="section-intro"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif"
+      alt="Pikachu" />
+    <img class="section-mascot__img" data-section="section-history"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif"
+      alt="Squirtle" />
+    <img class="section-mascot__img" data-section="section-impacts"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif"
+      alt="Charmander" />
+    <img class="section-mascot__img" data-section="section-social-good"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"
+      alt="Bulbasaur" />
+    <img class="section-mascot__img" data-section="section-video"
+      src="mew.gif"
+      alt="Mew" />
+    <img class="section-mascot__img" data-section="footer"
+      src="mew.gif"
+      alt="Mew" />
+  </div>
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  SPLASH                                              ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <section id="splash" class="splash" aria-labelledby="splash-heading">
+    <div class="splash-inner">
+
+      <header class="splash-header">
+        <h1 id="splash-heading" class="splash-title">We Need to <span class="go-icon"><img src="go.png"
+              alt="Go" /></span> Back</h1>
+        <p class="splash-subtitle">
+A simple proposal to heal society's woes by reviving the most popular mobile app of 2016
+        </p>
+      </header>
+
+      <a href="#section-intro" class="scroll-cta" aria-label="Learn more — scroll to Introduction">
+        <span class="scroll-cta__label">Learn More</span>
+        <span class="scroll-cta__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
+            <line x1="12" y1="4" x2="12" y2="20" />
+            <polyline points="18 14 12 20 6 14" />
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  PAGE LAYOUT — TOC sidebar + article                 ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <div class="page-layout">
+
+    <!-- ── Side Table of Contents (desktop) / Horizontal nav (tablet) / Drawer (mobile) ── -->
+    <aside class="toc" id="toc" aria-label="Table of contents">
+
+      <!-- Desktop & tablet inner -->
+      <div class="toc-inner">
+        <p class="toc-heading" aria-hidden="true">Contents</p>
+        <nav aria-label="Page sections">
+          <ol class="toc-list" role="list">
+            <li class="toc-item">
+              <a href="#section-intro" class="toc-link" data-section="section-intro">
+                <span class="toc-text">Introduction</span>
+              </a>
+            </li>
+            <li class="toc-item">
+              <a href="#section-history" class="toc-link" data-section="section-history">
+                <span class="toc-text">History</span>
+              </a>
+            </li>
+            <li class="toc-item">
+              <a href="#section-impacts" class="toc-link" data-section="section-impacts">
+                <span class="toc-text">Impacts</span>
+              </a>
+            </li>
+            <li class="toc-item">
+              <a href="#section-social-good" class="toc-link" data-section="section-social-good">
+                <span class="toc-text">Social Good</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+    </aside>
+
+    <!-- Mobile hamburger toggle (only rendered at mobile breakpoint) -->
+    <button class="toc-fab" id="toc-fab" type="button" aria-expanded="false" aria-controls="toc-drawer"
+      aria-label="Open table of contents">
+      <svg class="toc-fab__icon toc-fab__icon--open" viewBox="0 0 24 24" width="20" height="20" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="16" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+      <svg class="toc-fab__icon toc-fab__icon--close" viewBox="0 0 24 24" width="20" height="20" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+        <line x1="5" y1="5" x2="19" y2="19" />
+        <line x1="19" y1="5" x2="5" y2="19" />
+      </svg>
+    </button>
+
+    <!-- Mobile drawer -->
+    <div class="toc-drawer" id="toc-drawer" aria-hidden="true">
+      <nav aria-label="Page sections — mobile">
+        <p class="toc-drawer__heading">Contents</p>
+        <ol class="toc-drawer__list" role="list">
+          <li><a href="#section-intro" class="toc-drawer__link" data-target="section-intro">Introduction</a></li>
+          <li><a href="#section-history" class="toc-drawer__link" data-target="section-history">History</a></li>
+          <li><a href="#section-impacts" class="toc-drawer__link" data-target="section-impacts">Impacts</a></li>
+          <li><a href="#section-social-good" class="toc-drawer__link" data-target="section-social-good">Social Good</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="toc-drawer-backdrop" id="toc-backdrop" aria-hidden="true"></div>
+
+
+    <!-- ── Main article content ── -->
+    <main id="main-content">
+      <article>
+
+        <!-- 1. Introduction ──────────────────────────── -->
+        <section id="section-intro" class="content-section" aria-labelledby="heading-intro">
+          <div class="section-inner section-inner--stacked">
+
+            <div class="section-text reveal-text">
+              <h2 id="heading-intro" class="section-heading">Introduction</h2>
+              <p>
+                As someone who’s been permanently online since they included a CompuServe trial disk with my dad’s
+                subscription to PC World in 1994, I have truly come to believe that widespread smartphone adoption has
+                been a disaster for society. In the thirty-odd years since I first logged on, the early internet’s
+                promise of an interconnected egalitarian global village has curdled into the depressing reality of
+                today’s internet: a time-wasting cesspool of medieval superstition and illiteracy controlled by a
+                handful of billionaires. But as a backwards-looking geriatric millennial with my best years starting to
+                recede behind me, the only solution to the problem I can really envision is to somehow make it 2016
+                again through science or magic.
+              </p>
+              <p>
+                Why 2016? First of all, you know why. But if I had to plant my flag somewhere, I’d say it’s because 2016
+                was the last time anyone was having <em>fun</em> on their phones — specifically, the summer of 2016,
+                when Pokémon Go topped the App Store charts, dying malls and underutilized public spaces became Pokémon
+                gyms, and strangers chased Charizards together late into the hot August nights.
+              </p>
+              <p>
+                How can we recapture that moment in time, when the internet brought strangers together instead of
+                driving friends apart, when our phone addictions encouraged grass touching instead of bedrot? Is there a
+                way to use the technologies that powered Pokémon GO to build interpersonal bonds and renew our IRL
+                social networks?
+              </p>
+              <p>
+                Or should we just literally make Pokémon GO popular again?
+              </p>
+              <p>
+                Honestly, that sounds way easier. Let’s just make Pokémon GO popular again!
+              </p>
+            </div>
+
+            <figure class="section-figure reveal-figure" aria-label="Introductory image placeholder">
+              <div class="image-slot" role="img" aria-label="Placeholder — 800 × 600 px recommended"></div>
+              <figcaption>Introductory image — 800 × 600 px recommended</figcaption>
+            </figure>
+
+          </div>
+        </section>
+
+
+        <!-- 2. History ───────────────────────────────── -->
+        <section id="section-history" class="content-section" aria-labelledby="heading-history">
+          <div class="section-inner section-inner--stacked">
+
+            <div class="section-text reveal-text">
+              <h2 id="heading-history" class="section-heading">History</h2>
+              <p>
+Pokémon GO is an example of Augmented Reality (AR) technology, which layers digital content over a user’s physical
+reality. This differs from Virtual Reality (VR), which entirely replaces the real world with the breathtaking digital
+environment of, like, Beat Saber.
+</p>
+<p>
+  The history of AR stretches back as far as 1901, when <em>Wizard of Oz</em> author L. Frank Baum’s novel <em>The
+    Master Key</em> envisioned a fantastical pair of electric glasses that allowed their wearer to view a indication of
+  people’s inner character on their foreheads (maybe we have that now – who knows what’s going on with Meta Ray-Bans).
+</p>
+<p>
+  It was first realized as a technology in the 1960s with <a
+    href=”https://immersivearchive.org/ivan-hmd.html#https://computerhistory.org/blog/the-remarkable-ivan-sutherland/”
+    target=”_blank”>Ivan Sutherland’s</a> “<a href=”https://www.computerhistory.org/revolution/input-output/14/356”
+    target=”blank”>Sword of Damocles”</a> headset, refined in the 1970s by innovators like <a
+    href=”http://www.wearcam.org/ieeecomputer/r2025.htm” target=”_blank”>Steve Mann</a>, given its name in the 90s by
+  Boeing engineer <a href=”https://rauterberg.employee.id.tue.nl/presentations/HCI-history/tsld096.htm”
+    target=”_blank”>Tom Caudell</a>, gamified in 2000 by the <a href=”https://cacm.acm.org/research/arquake/”
+    target=”_blank”>Wearable Computer Lab</a> at the University of South Australia, and perfected in 2016 with a silly
+  phone game about catching Metapods.
+</p>
+<p>
+  In 2015, mobile game publisher Niantic began the work of turning the framework of its Foursquare-esque augmented
+  reality game <a href=”https://en.wikipedia.org/wiki/Ingress_(video_game)” target=”_blank”>Ingress</a> into a frankly
+  half-baked game based on the massively popular <em>Pokémon</em> franchise. On its release in July 2016, it was an <a
+    href=”https://www.theguardian.com/technology/2016/aug/23/pokemon-go-active-users-down-augmented-reality-games”
+    target=”_blank”>immediate megahit</a>: a week after its launch, it was the most popular mobile app in the world with
+  45 million daily global users, over 25 million of them in the United States alone. Its fall from grace was <a
+    href=”https://www.vice.com/en/article/peak-pokemon-go/” target=”_blank”>almost as precipitous</a>: by the end of
+  July, the game’s daily active users and downloads were already trending downwards, and by the end of 2016, it’d lost
+  <a href=”https://www.businessofapps.com/data/pokemon-go-statistics/” target=”_blank”>70% of its active user base</a>.
+</p>
+<p>
+  At the time, much ink was spilled about specific factors contributing to the game’s downfall, but looking back after a
+  decade I think it’s fair to take the macro view of things: fads don’t last forever, summers don’t last forever, and
+  frankly the gameplay was never very good.
+</p>
+<p>
+  Pokémon Go exposed millions of people around the world to augmented reality technology, a lightning-in-a-bottle
+  opportunity on which the tech industry has largely failed to capitalize. Okay, yes, there are currently some
+  interesting uses of AR in the fields of science, medicine and education. And yes, tech guys keep trying and failing to
+  make AR wearables happen. But for the most part, I feel like AR is in the same space as QR codes were before they got
+  their big break during COVID - useful tech, small circle of enthusiasts and evangelists, but no killer app. Pokémon Go
+  is the most culturally significant AR technology of all time, and there’s no close runner-up.
+</p>
+<p>
+  Why did Pokémon GO succeed where others failed? Why did nobody even manage to put out a semi-successful knockoff of
+  the most popular mobile games in the world? <a href=”https://archive.is/THfW2” target=”_blank”>This article</a>
+  speculates that Pokémon GO stood out even as a weak game in a very weak field of location-based AR mobile games
+  because it was able to lean on its users’ familiarity and emotional connection with the world of Pokemon. Makes
+  perfect sense - until you consider the total failure of Niantic’s also-lousy game based on another beloved peak
+  millennial franchise, <a href=”https://www.svg.com/1202186/this-recent-overhyped-harry-potter-game-was-a-total-flop/”
+    target=”_blank”>Harry Potter</a>.
+</p>
+<p>
+  If there’s one takeaway I can offer from this project, it’s this: for whatever reason, people are only willing to
+  embrace AR technology when it includes Pikachu. I don’t make the rules!
+</p>
+            </div>
+
+            <figure class="section-figure reveal-figure" aria-label="Historical image placeholder">
+              <div class="image-slot" role="img" aria-label="Placeholder — 800 × 600 px recommended"></div>
+              <figcaption>Historical image — 800 × 600 px recommended</figcaption>
+            </figure>
+
+          </div>
+        </section>
+
+
+        <!-- 3. Impacts ───────────────────────────────── -->
+        <section id="section-impacts" class="content-section" aria-labelledby="heading-impacts">
+          <div class="section-inner section-inner--stacked">
+
+            <div class="section-text reveal-text">
+              <h2 id="heading-impacts" class="section-heading">Impacts</h2>
+ <p>
+                The positive effects of Pokemon Go have been documented anecdotally by <a
+                  href="https://www.reddit.com/r/pokemongo/comments/180mr7e/anyone_else_using_pogo_primarily_as_a_fitness_app/"
+                  target="_blank">players who use it to get their steps in</a>, parents of autistic children who found
+                joy in <a href="https://edition.cnn.com/2016/08/05/health/pokemon-go-autism-aspergers/"
+                  target="_blank">getting outside with other kids to catch ‘em all</a>, and introverts who have used the
+                game as a stepping stone towards <a
+                  href="https://abc7.com/post/how-pokmon-go-is-helping-create-connections/16295643/"
+                  target="_blank">building IRL social connections</a>. Academic studies have also shown that Pokemon Go
+                players often report an <a href="https://journals.sagepub.com/doi/epub/10.1177/00332941231197155"
+                  target="_blank">increased sense of engagement with their physical surroundings and sense of belonging
+                  in their communities at home</a>, increased engagement with <a href="https://link.springer.com/article/10.1007/s40558-019-00153-2"
+                  target="_blank">local businesses and cultural attractions
+                on vacation</a>, and <a href="https://pubmed.ncbi.nlm.nih.gov/28806121/"
+                  target="_blank">increased bridging and bonding social capital</a> between fellow Dragonite-chasers
+                encountered face-to-face in the real world.
+              </p>
+              <p>
+                Augmented reality and Pokémon Go are not without their negative effects, although in a world where every
+                other driver and pedestrian is on their phone anyway, I am inclined to brush off concerns about Pokémon
+                GO’s specific contribution to America's <a
+                  href="https://www.ghsa.org/news/early-2024-us-pedestrian-fatalities-48-decade-ago"
+                  target="_blank">skyrocketing rate of motor vehicle-related pedestrian deaths</a>. At least Pokémon Go
+                tells you to knock it off when you have the app open in a moving car!
+              </p>
+              <p>
+                A more serious concern is the question of privacy – location-based games ask for a ton of data from
+                their users, even more than the average data-vampire mobile app. During Pokémon GO's initial surge of
+                popularity in 2016, media outlets noted that Niantic was sitting on a<a
+                  href="https://www.forbes.com/sites/yehongzhu/2016/07/29/how-niantic-is-profiting-off-tracking-where-you-go-while-playing-pokemon-go/"
+                  target="_blank">treasure trove of its users'
+                geospatial data</a>;
+                in 2025, we learned that the company was using all that crowdsourced data to build a <a
+                  href="https://www.popsci.com/technology/pokemon-go-delivery-robots-crowdsourcing/?_bhlid=b5452cec2227e1f7d072b583b08fbb55784f34ab"
+                  target="_blank">massive AI navigation model</a> used by Coco Robotics' self-driving delivery robots.
+              </p>
+              <p>
+                With that said, it seems pretty obvious that few people care about our culture of eroded digital privacy
+                and normalized digital surveillance unless they think it's going to get them a speeding ticket. Pokémon
+                Go's remaining fans <a href="https://www.reddit.com/r/Futurology/comments/1s2ippo/pokémon_go_players_spent_ten_years_building_a/"
+                  target="_blank">don't really seem to care about</a> what was, ultimately, a voluntary surrender of data;
+                <a href="https://civicscience.com/how-location-sharing-is-shaping-connectivity-among-americans/"
+                  target="_blank"> location sharing</a> is a bedrock part of Gen Z culture, and frankly I think that somewhere
+                between 50 and 75 percent of Americans would voluntarily enter their Social Security numbers into the
+                Chik-fil-A app in exchange for a free breakfast biscuit.
+              </p>
+            </div>
+
+            <figure class="section-figure reveal-figure" aria-label="Impact image placeholder">
+              <div class="image-slot" role="img" aria-label="Placeholder — 800 × 600 px recommended"></div>
+              <figcaption>Impact image — 800 × 600 px recommended</figcaption>
+            </figure>
+
+          </div>
+        </section>
+
+
+        <!-- 4. Social Good ───────────────────────────── -->
+        <section id="section-social-good" class="content-section" aria-labelledby="heading-social-good">
+          <div class="section-inner section-inner--stacked">
+
+            <div class="section-text reveal-text">
+              <h2 id="heading-social-good" class="section-heading">Social Good</h2>
+              <p>
+             So what am I proposing? It’s very simple and straightforward: we need to bring back the Pokemon Go craze and use it to reverse social atomization and heal the global loneliness epidemic.
+</p>
+<p>
+Of course, Pokemon GO has already kind of lived out its natural life cycle. It blew up, it peaked, it waned, and it is now enjoyed only by a massively deflated user base of serious enthusiasts. How do I propose to revive it? The only way anything gets done these days: by finding a powerful and wealthy benefactor to bankroll a social media influence campaign around it.
+</p>
+<p>
+The 30th anniversary of the Pokémon franchise and the star-studded “<a href=”https://press.pokemon.com/en/Pokemon-30th-Celebration-Unveil” target=”_blank”>What’s Your Favorite</a>” campaign that debuted at this year’s Super Bowl present the perfect launching pad for a Pokemon GO revival, but it’s not enough to simply have Lady Gaga talking about Jigglypuff. To successfully get the word out about Pokemon GO in an increasingly crowded digital landscape, we’ll need to connect with every influencer, podcaster, and new media personality who has demonstrated that they are willing to take cash payments to create content around a targeted message – the dumber, the better. We’re not going to get anywhere if we only target creators whose content ranges from actively pro-social to basically neutral – we need manosphere podcasters wearing Pokemon Go+ wristbands on camera, antivax momfluencers casually mentioning their household PokeCoin budgets, Jake Paul fighting Hitmonchan, Candace Owens transvestigating Nidorina.
+</p>
+<p>
+Of course, as I mentioned earlier, fads only last so long. What am I going to do to stop my Pokemon GO revival from fading away with the warm summer weather, the way it did back in 2016? For that, I’ll tap in to something that has enjoyed a steady increase in popularity over the past few years – online gambling. During the pandemic, Americans discovered that they love gambling, crypto, options trading, and basically any get-rich-quick scheme you can access from your phone. With that in mind, I’ll use premium accounts, in-game purchases, and the occasional cash infusion from our wealthy benefactor to fund loot box-style game elements that pay out real money (or GameStop stock, or Fartcoin) to keep players coming back again and again, day after day.
+</p>
+<p>
+With this dynamic in place, we can start to think about using the game not just to encourage basic physical activity and heterogeneous social encounters, but to shape a better society. Perhaps we can reverse our declining <a href=”https://publichealth.jhu.edu/ivac/2025/across-the-us-childhood-vaccination-rates-continue-to-decline” target=”_blank”>childhood vaccination rates</a> with a special mystery box that you can only get after successfully adding your pediatrician’s Trainer Code in the app, or meet the <a href=”https://www.npr.org/2025/11/02/nx-s1-5535648/population-elderly-caregivers” target=”_blank”>growing demand for elder care professionals</a> in an aging society by creating an exclusive Eevee evolution that you can only catch at nursing school graduation ceremonies. The possibilities are endless.</p>
+            </div>
+
+            <figure class="section-figure reveal-figure">
+              <div class="image-slot" role="img">
+                <!-- <img src="societyif.jpg" alt="Society if we engineered a massive revival of the Pokemon GO mobile app from 2016 and used it to reshape the world in which we live" /> -->
+              </div>
+              <figcaption>Society if we artificially engineered a massive revival of the Pokemon GO mobile app from 2016</figcaption>
+            </figure>
+
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+  </div><!-- /.page-layout -->
+
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  VIDEO SECTION                                       ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <section id="section-video" class="video-section" aria-labelledby="heading-video">
+    <div class="video-section-inner">
+      <h2 id="heading-video" class="video-section-heading">Here, I'll Explain</h2>
+
+      <!-- YouTube embed slot
+           ─────────────────────────────────────────────────────
+           To add your video: replace the <div class="video-placeholder">
+           block below with an <iframe> like so:
+
+           <iframe
+             src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+             title="Describe the video here"
+             allow="accelerometer; autoplay; clipboard-write;
+                    encrypted-media; gyroscope; picture-in-picture; web-share"
+             allowfullscreen
+             loading="lazy"
+           ></iframe>
+           ─────────────────────────────────────────────────────  -->
+      <figure class="video-figure" aria-label="Introductory YouTube video embed">
+        <div class="video-wrapper">
+          <div class="video-placeholder" role="img" aria-label="YouTube video placeholder — replace with iframe embed">
+            <svg class="video-placeholder__icon" viewBox="0 0 68 48" aria-hidden="true" focusable="false">
+              <path
+                d="M66.52 7.74a8.55 8.55 0 0 0-6.01-6.05C55.79.47 34 .47 34 .47S12.21.47 7.49 1.69A8.55 8.55 0 0 0 1.48 7.74C.25 12.5.25 24 .25 24s0 11.5 1.23 16.26a8.55 8.55 0 0 0 6.01 6.05C12.21 47.53 34 47.53 34 47.53s21.79 0 26.51-1.22a8.55 8.55 0 0 0 6.01-6.05C67.75 35.5 67.75 24 67.75 24s0-11.5-1.23-16.26Z" />
+              <path class="video-placeholder__play" d="M27.5 33.5 45 24 27.5 14.5Z" />
+            </svg>
+            <p class="video-placeholder__label">YouTube Video</p>
+            <p class="video-placeholder__hint">Replace this block with an &lt;iframe&gt; embed</p>
+          </div>
+        </div>
+        <figcaption class="video-caption">Watch the introduction — approximately 3 minutes</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════════╗
+       ║  FOOTER                                              ║
+       ╚══════════════════════════════════════════════════════╝ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div></div>
+      <a href="#splash" class="footer-top" aria-label="Scroll back to top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
