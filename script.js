@@ -105,31 +105,33 @@
   function checkVideoAndFooterMascot() {
     var videoSection = qs('#section-video');
     var footer = qs('.site-footer');
-    
+    var mascotContainer = qs('.section-mascot');
     if (!videoSection && !footer) return;
-    
     var windowBottom = window.scrollY + window.innerHeight;
     var inVideoOrFooter = false;
-    
+    // Check if footer is in view (takes priority)
+    if (footer) {
+      var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+      if (windowBottom >= footerTop + 50) {
+        inVideoOrFooter = true;
+        if (mascotContainer) mascotContainer.style.opacity = '0';
+        return true;
+      }
+    }
     // Check if video section is in view
     if (videoSection) {
       var videoTop = videoSection.getBoundingClientRect().top + window.scrollY;
       var videoBottom = videoTop + videoSection.offsetHeight;
       if (windowBottom >= videoTop + (window.innerHeight * 0.15) && window.scrollY < videoBottom) {
         inVideoOrFooter = true;
+        if (mascotContainer) mascotContainer.style.opacity = '1';
         updateMascot('section-video');
+      } else if (mascotContainer) {
+        mascotContainer.style.opacity = '1';
       }
+    } else if (mascotContainer) {
+      mascotContainer.style.opacity = '1';
     }
-    
-    // Check if footer is in view (takes priority)
-    if (footer && !inVideoOrFooter) {
-      var footerTop = footer.getBoundingClientRect().top + window.scrollY;
-      if (windowBottom >= footerTop + 50) {
-        inVideoOrFooter = true;
-        updateMascot('footer');
-      }
-    }
-    
     return inVideoOrFooter;
   }
 

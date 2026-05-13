@@ -460,15 +460,39 @@ address { font-style: normal; }
 }
 
 /* ── Active state: bold, accent color, underlined ── */
+
+/* Default highlight bar (accent color) */
 .toc-link.is-active {
   color: var(--clr-accent);
   font-weight: var(--wt-black);
 }
-
 .toc-link.is-active .toc-text {
   text-decoration: underline;
   text-decoration-color: var(--clr-accent);
   text-decoration-thickness: 2px;
+}
+
+/* White highlight bar for dark/colored sections */
+body.in-splash .toc-link.is-active .toc-text,
+body.in-section-history .toc-link.is-active .toc-text,
+body.in-section-impacts .toc-link.is-active .toc-text,
+body.in-section-social-good .toc-link.is-active .toc-text {
+  text-decoration-color: #fff;
+}
+
+body.in-splash .toc-link.is-active,
+body.in-section-history .toc-link.is-active,
+body.in-section-impacts .toc-link.is-active,
+body.in-section-social-good .toc-link.is-active {
+  color: #fff;
+}
+
+/* Black/dark highlight bar for light sections */
+body.in-section-intro .toc-link.is-active .toc-text {
+  text-decoration-color: #1a1714;
+}
+body.in-section-intro .toc-link.is-active {
+  color: #1a1714;
 }
 
 /* Past sections are slightly muted */
