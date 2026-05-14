@@ -101,38 +101,47 @@
     });
   }
 
-  /** Check if we're in the video section or footer for Mew mascot */
-  function checkVideoAndFooterMascot() {
+  /** Check if we're in an area where mascot should be hidden (splash, video, footer) */
+  function checkMascotVisibility() {
     var videoSection = qs('#section-video');
     var footer = qs('.site-footer');
+    var splash = qs('#splash');
     var mascotContainer = qs('.section-mascot');
-    if (!videoSection && !footer) return;
+    if (!mascotContainer) return false;
+    
     var windowBottom = window.scrollY + window.innerHeight;
-    var inVideoOrFooter = false;
-    // Check if footer is in view (takes priority)
-    if (footer) {
-      var footerTop = footer.getBoundingClientRect().top + window.scrollY;
-      if (windowBottom >= footerTop + 50) {
-        inVideoOrFooter = true;
-        if (mascotContainer) mascotContainer.style.opacity = '0';
+    
+    // Check if we're still in the splash/header area
+    if (splash) {
+      var splashBottom = splash.getBoundingClientRect().bottom;
+      if (splashBottom > window.innerHeight * 0.1) {
+        mascotContainer.style.opacity = '0';
         return true;
       }
     }
+    
+    // Check if footer is in view
+    if (footer) {
+      var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+      if (windowBottom >= footerTop + 50) {
+        mascotContainer.style.opacity = '0';
+        return true;
+      }
+    }
+    
     // Check if video section is in view
     if (videoSection) {
       var videoTop = videoSection.getBoundingClientRect().top + window.scrollY;
       var videoBottom = videoTop + videoSection.offsetHeight;
       if (windowBottom >= videoTop + (window.innerHeight * 0.15) && window.scrollY < videoBottom) {
-        inVideoOrFooter = true;
-        if (mascotContainer) mascotContainer.style.opacity = '1';
-        updateMascot('section-video');
-      } else if (mascotContainer) {
-        mascotContainer.style.opacity = '1';
+        mascotContainer.style.opacity = '0';
+        return true;
       }
-    } else if (mascotContainer) {
-      mascotContainer.style.opacity = '1';
     }
-    return inVideoOrFooter;
+    
+    // Otherwise show mascot
+    mascotContainer.style.opacity = '1';
+    return false;
   }
 
   /** Update body background color to match active section */
@@ -220,12 +229,12 @@
     }
 
     function onScroll() {
-      // First check if we're in video section or footer for Mew mascot
-      var inVideoOrFooter = checkVideoAndFooterMascot();
+      // First check if we're in an area where mascot should be hidden
+      var shouldHideMascot = checkMascotVisibility();
       
-      // Then update the active section (which won't override Mew if we're in video/footer)
+      // Then update the active section
       var activeId = getActiveSectionId();
-      setActive(activeId, inVideoOrFooter);
+      setActive(activeId, shouldHideMascot);
       checkSplashState();
     }
 

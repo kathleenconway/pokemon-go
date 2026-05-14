@@ -97,15 +97,15 @@
   --clr-intro-text:      #1a1714;
   --clr-intro-muted:     #5c5852;
   
-  --clr-history-bg:      #3b82f6;
+  --clr-history-bg:      #2957a1;
   --clr-history-text:    #ffffff;
   --clr-history-muted:   #dbeafe;
   
-  --clr-impacts-bg:      #ef4444;
+  --clr-impacts-bg:      #a92f2f;
   --clr-impacts-text:    #ffffff;
   --clr-impacts-muted:   #fecaca;
   
-  --clr-social-bg:       #22c55e;
+  --clr-social-bg:       #2a7c48;
   --clr-social-text:     #ffffff;
   --clr-social-muted:    #dcfce7;
 }
@@ -626,7 +626,7 @@ article {
 #section-intro .section-text p:not(.lead) { color: var(--clr-intro-text); }
 #section-intro .lead { color: var(--clr-intro-muted); border-left-color: var(--clr-intro-text); }
 #section-intro .section-figure::after { background-color: var(--clr-intro-bg); }
-#section-intro .section-figure figcaption { color: var(--clr-intro-muted); }
+#section-intro .section-figure figcaption { color: var(--clr-intro-text); }
 
 /* History — Blue */
 #section-history .section-heading,
@@ -634,7 +634,7 @@ article {
 #section-history .section-text p:not(.lead) { color: var(--clr-history-text); }
 #section-history .lead { color: var(--clr-history-muted); border-left-color: var(--clr-history-text); }
 #section-history .section-figure::after { background-color: var(--clr-history-bg); }
-#section-history .section-figure figcaption { color: var(--clr-history-muted); }
+#section-history .section-figure figcaption { color: var(--clr-history-text); }
 
 /* Impacts — Red */
 #section-impacts .section-heading,
@@ -642,7 +642,7 @@ article {
 #section-impacts .section-text p:not(.lead) { color: var(--clr-impacts-text); }
 #section-impacts .lead { color: var(--clr-impacts-muted); border-left-color: var(--clr-impacts-text); }
 #section-impacts .section-figure::after { background-color: var(--clr-impacts-bg); }
-#section-impacts .section-figure figcaption { color: var(--clr-impacts-muted); }
+#section-impacts .section-figure figcaption { color: var(--clr-impacts-text); }
 
 /* Social Good — Green */
 #section-social-good .section-heading,
@@ -650,7 +650,7 @@ article {
 #section-social-good .section-text p:not(.lead) { color: var(--clr-social-text); }
 #section-social-good .lead { color: var(--clr-social-muted); border-left-color: var(--clr-social-text); }
 #section-social-good .section-figure::after { background-color: var(--clr-social-bg); }
-#section-social-good .section-figure figcaption { color: var(--clr-social-muted); }
+#section-social-good .section-figure figcaption { color: var(--clr-social-text); }
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -787,9 +787,12 @@ body.in-splash .section-mascot {
 /* ═══════════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════════ */
+
 .site-footer {
   padding-block:  var(--sp-10);
   padding-inline: var(--page-pad-h);
+  background: #111;
+  color: #fff;
 }
 
 .footer-inner {
@@ -802,12 +805,12 @@ body.in-splash .section-mascot {
   margin-inline: auto;
 }
 
-.footer-copy { font-size: var(--text-sm); color: var(--clr-text-subtle); }
+.footer-copy { font-size: var(--text-sm); color: #fff; }
 
 .footer-top {
   font-size:      var(--text-sm);
   font-weight:    var(--wt-medium);
-  color:          var(--clr-accent);
+  color:          #fff;
   letter-spacing: var(--track-wide);
   transition:     opacity 150ms ease;
 }
