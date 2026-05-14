@@ -745,7 +745,6 @@ body.in-splash .section-mascot {
   width:            100%;
   aspect-ratio:     4 / 3;
   background-color: var(--clr-bg-sunken);
-  border:           1px solid var(--clr-rule);
   border-radius:    var(--radius-md);
   display:          flex;
   align-items:      center;
